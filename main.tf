@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "arg" {
 
 # Create Azure Container Registry
 resource "azurerm_container_registry" "acr" {
-  name                = "boboacr"
+  name                = "tunzyacr"
   resource_group_name = azurerm_resource_group.arg.name
   location            = azurerm_resource_group.arg.location
   sku                 = "Standard"
@@ -15,10 +15,10 @@ resource "azurerm_container_registry" "acr" {
 
 # Create AKS Cluster and Grant ACR Pull acess
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "bobo_cluster"
+  name                = "tunzy_cluster"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
-  dns_prefix          = "karoaks"
+  dns_prefix          = "tunzyaks"
 
   default_node_pool {
     name       = "default"
@@ -41,4 +41,3 @@ resource "azurerm_role_assignment" "arm_role" {
   scope                            = azurerm_container_registry.acr.id
   skip_service_principal_aad_check = true
 }
-
