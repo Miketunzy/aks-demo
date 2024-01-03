@@ -1,11 +1,11 @@
 variable "resource_group_location" {
   type        = string
-  default     = "westeurope"
+  default     = "canadacentral"
   description = "Location of the resource group."
 }
 
 variable "resource_group_name" {
   type        = string
-  default     = "karo-rg"
+  default     = "tunzy-rg"
   description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription"
 }
